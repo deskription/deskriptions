@@ -1,0 +1,53 @@
+apiVersion: deskription.io/v1alpha1
+kind: Resource
+metadata:
+  name: shipwright-core-v1alpha1-buildrun
+spec:
+  selector:
+    apiGroup: shipwright.io
+    apiVersion: v1alpha1
+    kind: BuildRun
+  type: CICD
+---
+apiVersion: deskription.io/v1alpha1
+kind: ResourceTable
+metadata:
+  name: shipwright-core-v1alpha1-buildrun
+spec:
+  selector:
+    apiGroup: shipwright.io
+    apiVersion: v1alpha1
+    kind: BuildRun
+  columns:
+    - name: Namespace
+      path: metadata.namespace
+    - name: Name
+      path: metadata.name
+    - name: Status
+    - name: Started
+    - name: Finished
+    - name: Duration
+---
+apiVersion: deskription.io/v1alpha1
+kind: ResourceDetails
+metadata:
+  name: shipwright-core-v1alpha1-buildrun
+spec:
+  selector:
+    apiGroup: shipwright.io
+    apiVersion: v1alpha1
+    kind: BuildRun
+  fields:
+    - name: Namespace
+      path: metadata.namespace
+    - name: Name
+      path: metadata.name
+    - name: Labels
+    - name: Namespace
+      path: metadata.labels
+    - name: Annotations
+      path: metadata.annotations
+    - name: Status
+    - name: Started
+    - name: Finished
+    - name: Duration

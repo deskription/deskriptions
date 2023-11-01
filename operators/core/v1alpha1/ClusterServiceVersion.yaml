@@ -1,0 +1,54 @@
+apiVersion: deskription.io/v1alpha1
+kind: Resource
+metadata:
+  name: operators-core-v1alpha1-clusterserviceversion
+spec:
+  selector:
+    apiGroup: operators.coreos.com
+    apiVersion: v1alpha1
+    kind: ClusterServiceVersion
+  type: Operators
+---
+apiVersion: deskription.io/v1alpha1
+kind: ResourceTable
+metadata:
+  name: operators-core-v1alpha1-clusterserviceversion
+spec:
+  selector:
+    apiGroup: operators.coreos.com
+    apiVersion: v1alpha1
+    kind: ClusterServiceVersion
+  columns:
+    - name: Namespace
+      path: metadata.namespace
+    - name: Name
+      path: metadata.name
+    - name: Managed namespaces
+    - name: Status
+    - name: Last updated
+    - name: Created
+      type: DateTime
+      path: metadata.creationTimestamp
+---
+apiVersion: deskription.io/v1alpha1
+kind: ResourceDetails
+metadata:
+  name: operators-core-v1alpha1-clusterserviceversion
+spec:
+  selector:
+    apiGroup: operators.coreos.com
+    apiVersion: v1alpha1
+    kind: ClusterServiceVersion
+  fields:
+    - name: Namespace
+      path: metadata.namespace
+    - name: Name
+      path: metadata.name
+    - name: Managed namespaces
+    - name: Status
+    - name: Last updated
+    - name: Labels
+    - name: Namespace
+      path: metadata.labels
+    - name: Annotations
+      path: metadata.annotations

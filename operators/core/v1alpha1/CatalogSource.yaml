@@ -1,0 +1,58 @@
+apiVersion: deskription.io/v1alpha1
+kind: Resource
+metadata:
+  name: operators-core-v1alpha1-catalogsource
+spec:
+  selector:
+    apiGroup: operators.coreos.com
+    apiVersion: v1alpha1
+    kind: CatalogSource
+  type: Operators
+---
+apiVersion: deskription.io/v1alpha1
+kind: ResourceTable
+metadata:
+  name: operators-core-v1alpha1-catalogsource
+spec:
+  selector:
+    apiGroup: operators.coreos.com
+    apiVersion: v1alpha1
+    kind: CatalogSource
+  columns:
+    - name: Namespace
+      path: metadata.namespace
+    - name: Name
+      path: metadata.name
+    - name: Status
+    - name: Display name
+    - name: Publisher
+    - name: Availability
+    - name: Endpoint
+    - name: Created
+      type: DateTime
+      path: metadata.creationTimestamp
+---
+apiVersion: deskription.io/v1alpha1
+kind: ResourceDetails
+metadata:
+  name: operators-core-v1alpha1-catalogsource
+spec:
+  selector:
+    apiGroup: operators.coreos.com
+    apiVersion: v1alpha1
+    kind: CatalogSource
+  fields:
+    - name: Namespace
+      path: metadata.namespace
+    - name: Name
+      path: metadata.name
+    - name: Status
+    - name: Display name
+    - name: Publisher
+    - name: Availability
+    - name: Endpoint
+    - name: Labels
+    - name: Namespace
+      path: metadata.labels
+    - name: Annotations
+      path: metadata.annotations

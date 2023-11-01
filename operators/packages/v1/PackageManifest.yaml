@@ -1,0 +1,55 @@
+apiVersion: deskription.io/v1alpha1
+kind: Resource
+metadata:
+  name: operators-packages-v1-packagemanifest
+spec:
+  selector:
+    apiGroup: packages.operators.coreos.com
+    apiVersion: v1
+    kind: PackageManifest
+  type: Operators
+---
+apiVersion: deskription.io/v1alpha1
+kind: ResourceTable
+metadata:
+  name: operators-packages-v1-packagemanifest
+spec:
+  selector:
+    apiGroup: packages.operators.coreos.com
+    apiVersion: v1
+    kind: PackageManifest
+  columns:
+    - name: Namespace
+      path: metadata.namespace
+    - name: Name
+      path: metadata.name
+    - name: Display name
+    - name: Provider
+    - name: Catalog source
+    - name: Created
+      type: DateTime
+      path: metadata.creationTimestamp
+---
+apiVersion: deskription.io/v1alpha1
+kind: ResourceDetails
+metadata:
+  name: operators-packages-v1-packagemanifest
+spec:
+  selector:
+    apiGroup: packages.operators.coreos.com
+    apiVersion: v1
+    kind: PackageManifest
+  fields:
+    - name: Namespace
+      path: metadata.namespace
+    - name: Name
+      path: metadata.name
+    - name: Labels
+    - name: Namespace
+      path: metadata.labels
+    - name: Annotations
+      path: metadata.annotations
+    - name: Display name
+    - name: Provider
+    - name: Latest version
+    - name: Catalog source

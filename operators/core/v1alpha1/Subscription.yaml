@@ -1,0 +1,53 @@
+apiVersion: deskription.io/v1alpha1
+kind: Resource
+metadata:
+  name: operators-core-v1alpha1-subscription
+spec:
+  selector:
+    apiGroup: operators.coreos.com
+    apiVersion: v1alpha1
+    kind: Subscription
+  type: Operators
+---
+apiVersion: deskription.io/v1alpha1
+kind: ResourceTable
+metadata:
+  name: operators-core-v1alpha1-subscription
+spec:
+  selector:
+    apiGroup: operators.coreos.com
+    apiVersion: v1alpha1
+    kind: Subscription
+  columns:
+    - name: Namespace
+      path: metadata.namespace
+    - name: Name
+      path: metadata.name
+    - name: Created
+      type: DateTime
+      path: metadata.creationTimestamp
+---
+apiVersion: deskription.io/v1alpha1
+kind: ResourceDetails
+metadata:
+  name: operators-core-v1alpha1-subscription
+spec:
+  selector:
+    apiGroup: operators.coreos.com
+    apiVersion: v1alpha1
+    kind: Subscription
+  fields:
+    - name: Namespace
+      path: metadata.namespace
+    - name: Name
+      path: metadata.name
+    - name: Labels
+    - name: Namespace
+      path: metadata.labels
+    - name: Annotations
+      path: metadata.annotations
+    - name: Installed version
+    - name: Starting version
+    - name: CatalogSource
+    - name: Installation plan
+    - name: Conditions

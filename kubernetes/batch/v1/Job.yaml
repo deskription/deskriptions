@@ -1,0 +1,48 @@
+apiVersion: deskription.io/v1alpha1
+kind: Resource
+metadata:
+  name: kubernetes-batch-v1-job
+spec:
+  selector:
+    apiGroup: batch
+    apiVersion: v1
+    kind: Job
+  type: Workload
+---
+apiVersion: deskription.io/v1alpha1
+kind: ResourceTable
+metadata:
+  name: kubernetes-batch-v1-job
+spec:
+  selector:
+    apiGroup: batch
+    apiVersion: v1
+    kind: Job
+  columns:
+    - name: Namespace
+      path: metadata.namespace
+    - name: Name
+      path: metadata.name
+    - name: Created
+      type: DateTime
+      path: metadata.creationTimestamp
+---
+apiVersion: deskription.io/v1alpha1
+kind: ResourceDetails
+metadata:
+  name: kubernetes-batch-v1-job
+spec:
+  selector:
+    apiGroup: batch
+    apiVersion: v1
+    kind: Job
+  fields:
+    - name: Namespace
+      path: metadata.namespace
+    - name: Name
+      path: metadata.name
+    - name: Labels
+    - name: Namespace
+      path: metadata.labels
+    - name: Annotations
+      path: metadata.annotations

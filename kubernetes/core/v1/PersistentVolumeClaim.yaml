@@ -1,0 +1,48 @@
+apiVersion: deskription.io/v1alpha1
+kind: Resource
+metadata:
+  name: kubernetes-core-v1-persistentvolumeclaim
+spec:
+  selector:
+    apiGroup: core
+    apiVersion: v1
+    kind: PersistentVolumeClaim
+  type: Storage
+---
+apiVersion: deskription.io/v1alpha1
+kind: ResourceTable
+metadata:
+  name: kubernetes-core-v1-persistentvolumeclaim
+spec:
+  selector:
+    apiGroup: core
+    apiVersion: v1
+    kind: PersistentVolumeClaim
+  columns:
+    - name: Namespace
+      path: metadata.namespace
+    - name: Name
+      path: metadata.name
+    - name: Created
+      type: DateTime
+      path: metadata.creationTimestamp
+---
+apiVersion: deskription.io/v1alpha1
+kind: ResourceDetails
+metadata:
+  name: kubernetes-core-v1-persistentvolumeclaim
+spec:
+  selector:
+    apiGroup: core
+    apiVersion: v1
+    kind: PersistentVolumeClaim
+  fields:
+    - name: Namespace
+      path: metadata.namespace
+    - name: Name
+      path: metadata.name
+    - name: Labels
+    - name: Namespace
+      path: metadata.labels
+    - name: Annotations
+      path: metadata.annotations

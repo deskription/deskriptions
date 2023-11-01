@@ -1,0 +1,85 @@
+apiVersion: deskription.io/v1alpha1
+kind: Resource
+metadata:
+  name: kubernetes-core-v1-pod
+spec:
+  selector:
+    apiGroup: core
+    apiVersion: v1
+    kind: ConfigMap
+  type: Workload
+---
+apiVersion: deskription.io/v1alpha1
+kind: ResourceTable
+metadata:
+  name: kubernetes-core-v1-pod
+spec:
+  selector:
+    apiGroup: core
+    apiVersion: v1
+    kind: ConfigMap
+  columns:
+    - name: Name
+      path: metadata.name
+    - name: Status
+      type: status
+      path: status.phase
+    - name: Ready
+      width: short
+      type: conditions
+    - name: Restarts
+      type: Sum
+      width: short
+      path: status.containerStatuses.*.restartCount
+    - name: Owner
+      type: Owners
+      path: metadata.ownerReferences
+    - name: Memory
+      type: Memory
+      width: short
+    - name: CPU
+      type: CPU
+      width: short
+    - name: Created
+      type: DateTime
+      path: metadata.creationTimestamp
+---
+apiVersion: deskription.io/v1alpha1
+kind: ResourceDetails
+metadata:
+  name: kubernetes-core-v1-pod
+spec:
+  selector:
+    apiGroup: core
+    apiVersion: v1
+    kind: ConfigMap
+  fields:
+    - name: Name
+    - name: Namespace
+    - name: Labels
+    - name: Node selector
+    - name: Tolerations
+    - name: Annotations
+    - name: Created at
+    - name: Owner
+    - name: Status
+    - name: Restart policy
+    - name: Active deadline seconds
+    - name: Pod IP
+    - name: Host IP
+    - name: Node
+    - name: Image pull secret
+    - name: PodDisruptionBudget
+    - name: Containers
+      type: Table
+      table:
+        columns:
+          - name: Name
+          - name: Image
+          - name: State
+          - name: Restarts
+          - name: Started
+          - name: Finished
+          - name: Duration
+          - name: Exit code
+    - name: Environment

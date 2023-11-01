@@ -1,0 +1,48 @@
+apiVersion: deskription.io/v1alpha1
+kind: Resource
+metadata:
+  name: kubernetes-storage-v1-volumesnapshot
+spec:
+  selector:
+    apiGroup: storage.k8s.io
+    apiVersion: v1
+    kind: VolumeSnapshot
+  type: Storage
+---
+apiVersion: deskription.io/v1alpha1
+kind: ResourceTable
+metadata:
+  name: kubernetes-storage-v1-volumesnapshot
+spec:
+  selector:
+    apiGroup: storage.k8s.io
+    apiVersion: v1
+    kind: VolumeSnapshot
+  columns:
+    - name: Namespace
+      path: metadata.namespace
+    - name: Name
+      path: metadata.name
+    - name: Created
+      type: DateTime
+      path: metadata.creationTimestamp
+---
+apiVersion: deskription.io/v1alpha1
+kind: ResourceDetails
+metadata:
+  name: kubernetes-storage-v1-volumesnapshot
+spec:
+  selector:
+    apiGroup: storage.k8s.io
+    apiVersion: v1
+    kind: VolumeSnapshot
+  fields:
+    - name: Namespace
+      path: metadata.namespace
+    - name: Name
+      path: metadata.name
+    - name: Labels
+    - name: Namespace
+      path: metadata.labels
+    - name: Annotations
+      path: metadata.annotations

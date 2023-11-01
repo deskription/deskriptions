@@ -1,0 +1,48 @@
+apiVersion: deskription.io/v1alpha1
+kind: Resource
+metadata:
+  name: kubernetes-autoscaling-v2-hpa
+spec:
+  selector:
+    apiGroup: autoscaling
+    apiVersion: v2
+    kind: HorizontalPodAutoscaler
+  type: Workload
+---
+apiVersion: deskription.io/v1alpha1
+kind: ResourceTable
+metadata:
+  name: kubernetes-autoscaling-v2-hpa
+spec:
+  selector:
+    apiGroup: autoscaling
+    apiVersion: v2
+    kind: HorizontalPodAutoscaler
+  columns:
+    - name: Namespace
+      path: metadata.namespace
+    - name: Name
+      path: metadata.name
+    - name: Created
+      type: DateTime
+      path: metadata.creationTimestamp
+---
+apiVersion: deskription.io/v1alpha1
+kind: ResourceDetails
+metadata:
+  name: kubernetes-autoscaling-v2-hpa
+spec:
+  selector:
+    apiGroup: autoscaling
+    apiVersion: v2
+    kind: HorizontalPodAutoscaler
+  fields:
+    - name: Namespace
+      path: metadata.namespace
+    - name: Name
+      path: metadata.name
+    - name: Labels
+    - name: Namespace
+      path: metadata.labels
+    - name: Annotations
+      path: metadata.annotations

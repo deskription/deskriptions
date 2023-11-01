@@ -7,7 +7,7 @@ spec:
     apiGroup: machine.openshift.io
     apiVersion: v1beta1
     kind: MachineHealthCheck
-  type: Workload
+  type: Compute
 ---
 apiVersion: deskription.io/v1alpha1
 kind: ResourceTable

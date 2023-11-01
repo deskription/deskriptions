@@ -7,7 +7,7 @@ spec:
     apiGroup: machineconfiguration.openshift.io
     apiVersion: v1
     kind: MachineConfigPool
-  type: Workload
+  type: Compute
 ---
 apiVersion: deskription.io/v1alpha1
 kind: ResourceTable

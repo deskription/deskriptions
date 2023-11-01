@@ -7,7 +7,7 @@ spec:
     apiGroup: autoscaling.openshift.io
     apiVersion: v1beta1
     kind: MachineAutoscaler
-  type: Workload
+  type: Compute
 ---
 apiVersion: deskription.io/v1alpha1
 kind: ResourceTable

@@ -7,7 +7,7 @@ spec:
     apiGroup: user.openshift.io
     apiVersion: v1
     kind: Group
-  type: Workload
+  type: RBAC
 ---
 apiVersion: deskription.io/v1alpha1
 kind: ResourceTable

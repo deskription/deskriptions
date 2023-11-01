@@ -1,0 +1,48 @@
+apiVersion: deskription.io/v1alpha1
+kind: Resource
+metadata:
+  name: openshift-autoscaling-v1beta1-machineautoscaler
+spec:
+  selector:
+    apiGroup: autoscaling.openshift.io
+    apiVersion: v1beta1
+    kind: MachineAutoscaler
+  type: Workload
+---
+apiVersion: deskription.io/v1alpha1
+kind: ResourceTable
+metadata:
+  name: openshift-autoscaling-v1beta1-machineautoscaler
+spec:
+  selector:
+    apiGroup: autoscaling.openshift.io
+    apiVersion: v1beta1
+    kind: MachineAutoscaler
+  columns:
+    - name: Namespace
+      path: metadata.namespace
+    - name: Name
+      path: metadata.name
+    - name: Created
+      type: DateTime
+      path: metadata.creationTimestamp
+---
+apiVersion: deskription.io/v1alpha1
+kind: ResourceDetails
+metadata:
+  name: openshift-autoscaling-v1beta1-machineautoscaler
+spec:
+  selector:
+    apiGroup: autoscaling.openshift.io
+    apiVersion: v1beta1
+    kind: MachineAutoscaler
+  fields:
+    - name: Namespace
+      path: metadata.namespace
+    - name: Name
+      path: metadata.name
+    - name: Labels
+    - name: Namespace
+      path: metadata.labels
+    - name: Annotations
+      path: metadata.annotations

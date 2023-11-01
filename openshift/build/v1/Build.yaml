@@ -1,0 +1,48 @@
+apiVersion: deskription.io/v1alpha1
+kind: Resource
+metadata:
+  name: openshift-build-v1-build
+spec:
+  selector:
+    apiGroup: build.openshift.io
+    apiVersion: v1
+    kind: Build
+  type: CICD
+---
+apiVersion: deskription.io/v1alpha1
+kind: ResourceTable
+metadata:
+  name: openshift-build-v1-build
+spec:
+  selector:
+    apiGroup: build.openshift.io
+    apiVersion: v1
+    kind: Build
+  columns:
+    - name: Namespace
+      path: metadata.namespace
+    - name: Name
+      path: metadata.name
+    - name: Created
+      type: DateTime
+      path: metadata.creationTimestamp
+---
+apiVersion: deskription.io/v1alpha1
+kind: ResourceDetails
+metadata:
+  name: openshift-build-v1-build
+spec:
+  selector:
+    apiGroup: build.openshift.io
+    apiVersion: v1
+    kind: Build
+  fields:
+    - name: Namespace
+      path: metadata.namespace
+    - name: Name
+      path: metadata.name
+    - name: Labels
+    - name: Namespace
+      path: metadata.labels
+    - name: Annotations
+      path: metadata.annotations

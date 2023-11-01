@@ -1,0 +1,48 @@
+apiVersion: deskription.io/v1alpha1
+kind: Resource
+metadata:
+  name: openshift-machineconfiguration-v1-machineconfigpool
+spec:
+  selector:
+    apiGroup: machineconfiguration.openshift.io
+    apiVersion: v1
+    kind: MachineConfigPool
+  type: Workload
+---
+apiVersion: deskription.io/v1alpha1
+kind: ResourceTable
+metadata:
+  name: openshift-machineconfiguration-v1-machineconfigpool
+spec:
+  selector:
+    apiGroup: machineconfiguration.openshift.io
+    apiVersion: v1
+    kind: MachineConfigPool
+  columns:
+    - name: Namespace
+      path: metadata.namespace
+    - name: Name
+      path: metadata.name
+    - name: Created
+      type: DateTime
+      path: metadata.creationTimestamp
+---
+apiVersion: deskription.io/v1alpha1
+kind: ResourceDetails
+metadata:
+  name: openshift-machineconfiguration-v1-machineconfigpool
+spec:
+  selector:
+    apiGroup: machineconfiguration.openshift.io
+    apiVersion: v1
+    kind: MachineConfigPool
+  fields:
+    - name: Namespace
+      path: metadata.namespace
+    - name: Name
+      path: metadata.name
+    - name: Labels
+    - name: Namespace
+      path: metadata.labels
+    - name: Annotations
+      path: metadata.annotations

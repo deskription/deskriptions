@@ -1,0 +1,59 @@
+apiVersion: deskription.io/v1alpha1
+kind: Resource
+metadata:
+  name: openshift-apps-v1-deploymentconfig
+spec:
+  selector:
+    apiGroup: apps.openshift.io
+    apiVersion: v1
+    kind: DeploymentConfig
+  type: Workload
+---
+apiVersion: deskription.io/v1alpha1
+kind: ResourceTable
+metadata:
+  name: openshift-apps-v1-deploymentconfig
+spec:
+  selector:
+    apiGroup: apps.openshift.io
+    apiVersion: v1
+    kind: DeploymentConfig
+  columns:
+    - name: Name
+      path: metadata.name
+    - name: Status
+      type: status
+      path: status.phase
+    - name: Ready
+      width: short
+      type: conditions
+    - name: Restarts
+      type: Sum
+      width: short
+      path: status.containerStatuses.*.restartCount
+    - name: Owner
+      type: Owners
+      path: metadata.ownerReferences
+    - name: Memory
+      type: Memory
+      width: short
+    - name: CPU
+      type: CPU
+      width: short
+    - name: Created
+      type: DateTime
+      path: metadata.creationTimestamp
+---
+apiVersion: deskription.io/v1alpha1
+kind: ResourceDetails
+metadata:
+  name: openshift-apps-v1-deploymentconfig
+kind: Resource
+metadata:
+  name: knative-serving-v1-revision
+spec:
+  selector:
+    apiGroup: apps.openshift.io
+    apiVersion: v1
+    kind: DeploymentConfig
+  type: Workload

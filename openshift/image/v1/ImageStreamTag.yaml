@@ -1,0 +1,48 @@
+apiVersion: deskription.io/v1alpha1
+kind: Resource
+metadata:
+  name: openshift-image-v1-imagestreamtag
+spec:
+  selector:
+    apiGroup: image.openshift.io
+    apiVersion: v1
+    kind: ImageStreamTag
+  type: CICD
+---
+apiVersion: deskription.io/v1alpha1
+kind: ResourceTable
+metadata:
+  name: openshift-image-v1-imagestreamtag
+spec:
+  selector:
+    apiGroup: image.openshift.io
+    apiVersion: v1
+    kind: ImageStream
+  columns:
+    - name: Namespace
+      path: metadata.namespace
+    - name: Name
+      path: metadata.name
+    - name: Created
+      type: DateTime
+      path: metadata.creationTimestamp
+---
+apiVersion: deskription.io/v1alpha1
+kind: ResourceDetails
+metadata:
+  name: openshift-image-v1-imagestreamtag
+spec:
+  selector:
+    apiGroup: image.openshift.io
+    apiVersion: v1
+    kind: ImageStreamTag
+  fields:
+    - name: Namespace
+      path: metadata.namespace
+    - name: Name
+      path: metadata.name
+    - name: Labels
+    - name: Namespace
+      path: metadata.labels
+    - name: Annotations
+      path: metadata.annotations
